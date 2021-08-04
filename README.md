@@ -1,5 +1,6 @@
 # Ender3V2Klipper
 Klipper Config For ender 3 V2
+4.2.2. mainboard
 
 Octoprint Klipper for ender3 v2
 
