@@ -2,7 +2,7 @@
 Ender3V2Klipper
 Klipper Config For ender 3 V2
 
-changer mainboard to 4.2.7! now printer is on this setup. old files renamed!
+changed mainboard to 4.2.7! now printer is on this setup. old files renamed!
 
 Fluidd Klipper for ender3 v2
 
