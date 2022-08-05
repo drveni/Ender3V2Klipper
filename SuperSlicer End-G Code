@@ -1,0 +1,15 @@
+G91 ; Set coordinates to relative
+G1 F1800 E-3 ; Retract filament 3 mm to prevent oozing
+G1 F3000 Z20 ; raise head
+G90 ; Set coordinates to absolute
+G1 X10 Y200 F5000.0 ; Move to start position
+M84
+
+BED_MESH_PROFILE REMOVE=default
+
+M106 S0 ;Turn-off fan
+M104 S0 ;Turn-off hotend
+M140 S0 ;Turn-off bed
+
+
+SET_SKEW CLEAR=1
