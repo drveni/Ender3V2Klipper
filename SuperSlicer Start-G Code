@@ -1,0 +1,39 @@
+SKEW_PROFILE LOAD=my_skew_profile
+
+M104 S160
+M140 S[first_layer_bed_temperature] ; start heating bed so it heats up at same time as nozzle
+M190 S[first_layer_bed_temperature] ; wait for bed to hit temperature
+
+;G29
+;BED_MESH_PROFILE LOAD=default
+
+BED_MESH_CALIBRATE AREA_START={first_layer_print_min[0]},{first_layer_print_min[1]} AREA_END={first_layer_print_max[0]},{first_layer_print_max[1]}
+
+G90
+G1 X244 Y225 Z10.8 F4000
+G1 X244 Y0 Z0.8 F4000
+
+M109 S[first_layer_temperature] ; wait for nozzle to heat up
+
+G92 E0
+;pocne grijati filament
+G90
+G1 X244 Y41 Z0.8 F4000
+G1 X238 Y41 Z0.8 F4000
+G1 X238 Y10 Z0.8 F4000
+
+;i drugi puta ocisti
+G1 X243 Y2 Z0.8 F4000
+G1 X243 Y41 Z0.8 F4000
+G1 X240 Y41 Z0.8 F4000
+G1 X240 Y10 Z0.8 F4000
+G1 X244 Y41 Z10 F4000
+
+;povlaci lajnu bocnu
+;G1 X5 Y20 Z0.3 F5000.0 ; Move to start position
+;G1 X5 Y200.0 Z0.3 F1500.0 E15 ; Draw the first line
+;G1 X5.4 Y200.0 Z0.3 F5000.0 ; Move to side a little
+;G1 X5.4 Y20 Z0.3 F1500.0 E30 ; Draw the second line
+;G92 E0 ; Reset Extruder
+;G1 Z2.0 F3000 ; Move Z Axis up little to prevent scratching of Heat Bed
+;G1 X10 Y20 Z0.3 F5000.0 ; Move over to prevent blob squish
